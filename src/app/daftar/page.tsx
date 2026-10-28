@@ -1,26 +1,27 @@
-'use client'
+"use client";
 
-import { useActionState } from 'react'
-import { useFormStatus } from 'react-dom'
-import { submitRegistration, type FormState } from '@/lib/actions'
-import { PROGRAMS, SITE } from '@/lib/constants'
-import Link from 'next/link'
-import { CheckmarkIcon } from '@/components/icons'
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
+import { submitRegistration, type FormState } from "@/lib/actions";
+import { SITE } from "@/lib/constants";
+import Link from "next/link";
+import { CheckmarkIcon } from "@/components/icons";
+import Image from "next/image";
 
 // ---------------------------------------------------------------------------
 // Submit button – reads pending state from parent <form>
 // ---------------------------------------------------------------------------
 function SubmitButton() {
-  const { pending } = useFormStatus()
+  const { pending } = useFormStatus();
   return (
     <button
       type="submit"
       disabled={pending}
       className="w-full btn inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blue-hover disabled:opacity-60 disabled:cursor-not-allowed text-white font-extrabold text-base px-8 py-4 rounded-full shadow-md transition-all"
     >
-      {pending ? 'Mengirim...' : 'Kirim Pendaftaran'}
+      {pending ? "Mengirim..." : "Kirim Pendaftaran"}
     </button>
-  )
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -30,11 +31,11 @@ function Field({
   label,
   required,
   children,
-}: {
-  label: string
-  required?: boolean
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}>) {
   return (
     <div className="flex flex-col gap-1.5">
       <label className="text-sm font-bold text-brand-navy">
@@ -43,25 +44,22 @@ function Field({
       </label>
       {children}
     </div>
-  )
+  );
 }
 
 const inputCls =
-  'w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-[15px] font-medium text-brand-navy placeholder:text-brand-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition'
+  "w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-[15px] font-medium text-brand-navy placeholder:text-brand-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition";
 
 const selectCls =
-  'w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-[15px] font-medium text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition appearance-none'
+  "w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-[15px] font-medium text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition appearance-none";
 
 // ---------------------------------------------------------------------------
 // Main form component
 // ---------------------------------------------------------------------------
-const initialState: FormState = { status: 'idle', message: '' }
+const initialState: FormState = { status: "idle", message: "" };
 
 export default function DaftarPage() {
-  const [state, formAction] = useActionState(submitRegistration, initialState)
-
-  // Hospitality programs from constants (exclude language program for bidang selection)
-  const programOptions = PROGRAMS.filter((p) => p.id !== 'language')
+  const [state, formAction] = useActionState(submitRegistration, initialState);
 
   return (
     <div className="min-h-screen bg-brand-subtle">
@@ -72,12 +70,12 @@ export default function DaftarPage() {
             href="/"
             className="flex items-center gap-2 text-white font-extrabold text-lg no-underline hover:text-brand-yellow transition-colors"
           >
-            <span
-              className="w-9 h-9 rounded-xl bg-brand-yellow flex items-center justify-center text-brand-navy font-extrabold text-lg shadow-sm"
+            <div
+              className="w-10 h-10 bg-brand-yellow aspect-square p-2 rounded-xl flex items-center justify-center"
               aria-hidden="true"
             >
-              K
-            </span>
+              <Image src="/logo.png" alt="LPK Logo" width={100} height={100} />
+            </div>
             <span className="hidden sm:inline">{SITE.fullName}</span>
             <span className="sm:hidden">{SITE.name}</span>
           </Link>
@@ -110,10 +108,13 @@ export default function DaftarPage() {
           </div>
 
           {/* Success state */}
-          {state.status === 'success' ? (
+          {state.status === "success" ? (
             <div className="bg-white rounded-[24px] p-10 flex flex-col items-center gap-5 text-center shadow-sm border border-brand-border">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                <CheckmarkIcon className="w-8 h-8 text-green-600" strokeWidth={3} />
+                <CheckmarkIcon
+                  className="w-8 h-8 text-green-600"
+                  strokeWidth={3}
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <h2 className="m-0 text-2xl font-extrabold text-brand-navy">
@@ -146,7 +147,7 @@ export default function DaftarPage() {
               className="bg-white rounded-[24px] p-8 sm:p-10 flex flex-col gap-6 shadow-sm border border-brand-border"
             >
               {/* Error banner */}
-              {state.status === 'error' && (
+              {state.status === "error" && (
                 <div
                   role="alert"
                   className="bg-red-50 border border-red-200 rounded-xl px-5 py-4 text-sm font-semibold text-red-700"
@@ -226,7 +227,7 @@ export default function DaftarPage() {
               {/* Section: Latar Belakang */}
               <div className="flex flex-col gap-5">
                 <h2 className="m-0 text-lg font-extrabold text-brand-navy border-b border-brand-border pb-3">
-                  Latar Belakang &amp; Minat
+                  Pendidikan &amp; Lainnya
                 </h2>
 
                 <Field label="Pendidikan Terakhir" required>
@@ -236,17 +237,6 @@ export default function DaftarPage() {
                     <option value="D1/D2/D3">D1 / D2 / D3</option>
                     <option value="S1">S1</option>
                     <option value="Lainnya">Lainnya</option>
-                  </select>
-                </Field>
-
-                <Field label="Bidang Kerja yang Diminati" required>
-                  <select name="bidang" required className={selectCls}>
-                    <option value="">— Pilih bidang —</option>
-                    {programOptions.map((p) => (
-                      <option key={p.id} value={p.title}>
-                        {p.title}
-                      </option>
-                    ))}
                   </select>
                 </Field>
 
@@ -280,6 +270,5 @@ export default function DaftarPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
-

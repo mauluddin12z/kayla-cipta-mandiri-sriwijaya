@@ -39,9 +39,8 @@ export async function submitRegistration(
     email: (formData.get('email') as string)?.trim() || '-',
     jenisKelamin: formData.get('jenisKelamin') as string,
     usia: (formData.get('usia') as string)?.trim(),
-    pendidikan: formData.get('pendidikan') as string,
-    bidang: formData.get('bidang') as string,
     kota: (formData.get('kota') as string)?.trim(),
+    pendidikan: formData.get('pendidikan') as string,
     pesan: (formData.get('pesan') as string)?.trim() || '-',
     timestamp: new Date().toLocaleString('id-ID', {
       timeZone: 'Asia/Jakarta',

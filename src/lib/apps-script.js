@@ -49,11 +49,10 @@ function doPost(e) {
         'Usia',
         'Kota/Kabupaten',
         'Pendidikan',
-        'Bidang Diminati',
         'Pesan',
       ]);
       // Style header
-      const headerRange = sheet.getRange(1, 1, 1, 10);
+      const headerRange = sheet.getRange(1, 1, 1, 9);
       headerRange.setFontWeight('bold');
       headerRange.setBackground('#2b70e4');
       headerRange.setFontColor('#ffffff');
@@ -70,7 +69,6 @@ function doPost(e) {
       data.usia,
       data.kota,
       data.pendidikan,
-      data.bidang,
       data.pesan,
     ]);
 
