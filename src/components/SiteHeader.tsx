@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className="max-w-295 mx-auto flex flex-wrap items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 no-underline">
           <div
-            className="w-20 h-20 rounded-xl flex items-center justify-center"
+            className="w-12 h-12 rounded-xl flex items-center justify-center"
             aria-hidden="true"
           >
             <Image src="/logo.png" alt="LPK Logo" width={100} height={100} />
