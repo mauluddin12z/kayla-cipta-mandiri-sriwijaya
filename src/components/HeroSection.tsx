@@ -1,5 +1,16 @@
 import { FEES, SITE } from "@/lib/constants";
-import { ClockIcon } from "@/components/icons";
+import { ClockIcon, CertificateIcon, BookIcon, ShirtIcon, ToolsIcon, MapIcon } from "@/components/icons";
+import type { ReactElement, SVGProps } from "react";
+
+// Icon map for fee items
+type FeeIconKey = "certificate" | "book" | "shirt" | "tools" | "map";
+const FEE_ICON_MAP: Record<FeeIconKey, (p: SVGProps<SVGSVGElement>) => ReactElement> = {
+  certificate: CertificateIcon,
+  book: BookIcon,
+  shirt: ShirtIcon,
+  tools: ToolsIcon,
+  map: MapIcon,
+};
 
 export function HeroSection() {
   return (
@@ -37,18 +48,18 @@ export function HeroSection() {
             <a
               id="hero-cta-primary"
               className="btn inline-flex items-center justify-center bg-brand-yellow hover:bg-brand-yellow-hover text-brand-navy font-extrabold text-base px-[30px] py-4 rounded-full shadow-md"
-              href={SITE.phoneHref}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/daftar"
             >
-              Daftar via WhatsApp
+              Daftar Sekarang
             </a>
             <a
               id="hero-cta-secondary"
               className="btn inline-flex items-center justify-center bg-transparent hover:bg-white/10 text-white font-bold text-base px-7 py-3.5 rounded-full border-2 border-white"
-              href="#persyaratan"
+              href={SITE.phoneHref}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Lihat Persyaratan
+              Tanya via WhatsApp
             </a>
           </div>
         </div>
@@ -67,10 +78,28 @@ export function HeroSection() {
             </span>
           </div>
 
-          <FeeRow label="Biaya Pendaftaran" value={FEES.registration} valueColor="text-brand-navy" />
-          <FeeRow label="Biaya Pendidikan" value={FEES.education} valueColor="text-brand-blue" />
+          {/* Fee items list */}
+          <div className="flex flex-col gap-2.5">
+            {FEES.feeItems.map((item) => {
+              const Icon = FEE_ICON_MAP[item.icon as FeeIconKey];
+              return (
+                <div
+                  key={item.icon}
+                  className="flex items-center gap-3 rounded-xl bg-brand-subtle px-4 py-3"
+                >
+                  <div className="flex-none w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-[15px] font-semibold text-brand-navy">
+                    {item.label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
 
-          <div className="flex justify-between items-center gap-3">
+          {/* Duration */}
+          <div className="flex justify-between items-center gap-3 pb-4.5 border-b border-brand-border">
             <span className="inline-flex items-center gap-2.5 text-[15px] font-semibold text-brand-muted">
               <ClockIcon className="w-5.5 h-5.5 text-brand-blue" />
               Lama Pelatihan
@@ -80,12 +109,13 @@ export function HeroSection() {
             </span>
           </div>
 
-          <div className="bg-brand-yellow rounded-lg p-5 flex flex-col gap-1.5 shadow-sm">
+          {/* Total */}
+          <div className="bg-brand-yellow rounded-xl p-5 flex items-center justify-between gap-3 shadow-sm">
             <span className="text-[13px] font-extrabold tracking-wider uppercase text-brand-navy">
-              Gratis
+              Biaya Total
             </span>
-            <span className="text-base font-bold leading-normal text-brand-navy">
-              {FEES.freeItems}
+            <span className="text-[28px] font-extrabold text-brand-navy">
+              {FEES.total}
             </span>
           </div>
         </div>
@@ -94,21 +124,3 @@ export function HeroSection() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Internal sub-component – not exported; only meaningful inside this module
-// ---------------------------------------------------------------------------
-
-interface FeeRowProps {
-  label: string;
-  value: string;
-  valueColor: string;
-}
-
-function FeeRow({ label, value, valueColor }: FeeRowProps) {
-  return (
-    <div className="flex justify-between items-baseline gap-3 pb-4.5 border-b border-brand-border">
-      <span className="text-[15px] font-semibold text-brand-muted">{label}</span>
-      <span className={`text-[26px] font-extrabold ${valueColor}`}>{value}</span>
-    </div>
-  );
-}

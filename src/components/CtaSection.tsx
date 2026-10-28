@@ -19,20 +19,20 @@ export function CtaSection() {
 
         <div className="flex flex-wrap gap-3.5">
           <a
-            id="cta-whatsapp"
+            id="cta-register"
             className="btn inline-flex items-center justify-center bg-brand-navy hover:bg-brand-navy-dark text-white font-extrabold text-base px-[30px] py-4 rounded-full shadow-md"
+            href="/daftar"
+          >
+            Daftar Sekarang
+          </a>
+          <a
+            id="cta-whatsapp"
+            className="btn inline-flex items-center justify-center bg-transparent hover:bg-brand-navy/10 text-brand-navy font-extrabold text-base px-7 py-3.5 rounded-full border-2 border-brand-navy"
             href={SITE.phoneHref}
             target="_blank"
             rel="noopener noreferrer"
           >
             Chat WhatsApp
-          </a>
-          <a
-            id="cta-email"
-            className="btn inline-flex items-center justify-center bg-transparent hover:bg-brand-navy/10 text-brand-navy font-extrabold text-base px-7 py-3.5 rounded-full border-2 border-brand-navy"
-            href={`mailto:${SITE.email}`}
-          >
-            Kirim Email
           </a>
         </div>
       </div>

@@ -14,10 +14,15 @@ export const SITE = {
 } as const;
 
 export const FEES = {
-  registration: "Rp500.000",
-  education: "Rp7.000.000",
+  total: "Rp15.000.000",
   trainingHours: "960 Jam",
-  freeItems: "Kaos Olahraga, Baju Batik, dan Buku Panduan Bahasa Jepang",
+  feeItems: [
+    { label: "Sertifikasi", icon: "certificate" },
+    { label: "Buku Diklat", icon: "book" },
+    { label: "Seragam", icon: "shirt" },
+    { label: "Bahan Baku Praktek", icon: "tools" },
+    { label: "Field Trip", icon: "map" },
+  ],
 } as const;
 
 export const ADVANTAGES = [
@@ -106,9 +111,46 @@ export const HEIGHT_REQUIREMENTS = [
   { label: "Perempuan", value: "150 cm", variant: "yellow" as const },
 ] as const;
 
+export const ACTIVITIES = [
+  {
+    id: "act-1",
+    category: "Kegiatan",
+    title: "Orientasi & Pengenalan Program Pelatihan Kerja",
+    excerpt:
+      "Peserta baru mengikuti sesi orientasi menyeluruh, mulai dari pengenalan kurikulum, jadwal pelatihan, hingga tata tertib asrama dan fasilitas lembaga.",
+    date: "28 Oktober 2026",
+    readTime: "3 menit",
+    image: "/activities/orientation.jpg",
+    variant: "featured" as const,
+  },
+  {
+    id: "act-2",
+    category: "Field Trip",
+    title: "Kunjungan Industri ke Hotel Bintang 5 di Palembang",
+    excerpt:
+      "Peserta mendapat kesempatan mengunjungi hotel berbintang untuk melihat langsung standar operasional industri perhotelan internasional.",
+    date: "28 Oktober 2026",
+    readTime: "4 menit",
+    image: "/activities/field-trip.jpg",
+    variant: "default" as const,
+  },
+  {
+    id: "act-3",
+    category: "Pelatihan",
+    title: "Uji Kompetensi Sertifikasi BNSP Angkatan Ke-7",
+    excerpt:
+      "Peserta angkatan ke-7 berhasil mengikuti uji kompetensi resmi dari Badan Nasional Sertifikasi Profesi dan meraih sertifikat profesi.",
+    date: "28 Oktober 2026",
+    readTime: "5 menit",
+    image: "/activities/certification.jpg",
+    variant: "default" as const,
+  },
+] as const;
+
 export const NAV_LINKS = [
   { href: "#program", label: "Bidang Kerja" },
   { href: "#biaya", label: "Biaya" },
+  { href: "#kegiatan", label: "Kegiatan" },
   { href: "#persyaratan", label: "Persyaratan" },
   { href: "#kontak", label: "Kontak" },
 ] as const;

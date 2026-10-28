@@ -3,6 +3,7 @@ import {
   HeroSection,
   AdvantagesSection,
   ProgramsSection,
+  ActivitiesSection,
   RequirementsSection,
   CtaSection,
   SiteFooter,
@@ -33,6 +34,7 @@ export default function HomePage() {
         <HeroSection />
         <AdvantagesSection />
         <ProgramsSection />
+        <ActivitiesSection />
         <RequirementsSection />
         <CtaSection />
       </main>

@@ -40,9 +40,7 @@ export function SiteHeader() {
           <a
             id="nav-cta"
             className="btn inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blue-hover text-white px-5.5 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all"
-            href={SITE.phoneHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/daftar"
           >
             Daftar Sekarang
           </a>

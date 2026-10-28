@@ -1,5 +1,6 @@
 import { SITE } from "@/lib/constants";
 import { PhoneIcon, MailIcon, MapPinIcon } from "@/components/icons";
+import Image from "next/image";
 
 export function SiteFooter() {
   return (
@@ -10,18 +11,23 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <div
-                className="w-11 h-11 rounded-xl bg-brand-yellow flex items-center justify-center text-brand-navy font-extrabold text-[22px] shadow-sm"
+                className="w-16 h-16 bg-brand-yellow aspect-square p-2 rounded-xl flex items-center justify-center"
                 aria-hidden="true"
               >
-                K
+                <Image
+                  src="/logo.png"
+                  alt="LPK Logo"
+                  width={100}
+                  height={100}
+                />
               </div>
               <span className="font-extrabold text-lg text-white">
                 {SITE.fullName}
               </span>
             </div>
             <p className="m-0 text-base leading-relaxed text-white/90">
-              Lembaga Pelatihan Kerja {SITE.fullName} Palembang. Pelatihan
-              kerja ke Jepang dan Korea.
+              Lembaga Pelatihan Kerja {SITE.fullName} Palembang. Pelatihan kerja
+              ke Jepang dan Korea.
             </p>
           </div>
 

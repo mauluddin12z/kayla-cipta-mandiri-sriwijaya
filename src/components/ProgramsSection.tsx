@@ -9,7 +9,10 @@ import {
   ChatIcon,
 } from "@/components/icons";
 
-const ICON_MAP: Record<ProgramIconKey, (p: SVGProps<SVGSVGElement>) => ReactElement> = {
+const ICON_MAP: Record<
+  ProgramIconKey,
+  (p: SVGProps<SVGSVGElement>) => ReactElement
+> = {
   person: PersonIcon,
   housekeeping: HousekeepingIcon,
   restaurant: RestaurantIcon,
