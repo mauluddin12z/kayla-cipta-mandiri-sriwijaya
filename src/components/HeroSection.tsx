@@ -2,9 +2,9 @@ import Image from "next/image";
 import { SITE } from "@/lib/constants";
 
 const VENUE_CHIPS = [
-  { label: "Hotel", emoji: "🏨" },
-  { label: "Restoran", emoji: "🍽️" },
-  { label: "Kapal Pesiar", emoji: "🛳️" },
+  { label: "Hotel", image: "/hero/hero-hotel.png" },
+  { label: "Restoran", image: "/hero/hero-restaurant.png" },
+  { label: "Kapal Pesiar", image: "/hero/hero-cruise.png" },
 ];
 
 const DESTINATIONS = [
@@ -30,7 +30,7 @@ export function HeroSection() {
         className="absolute inset-0 pointer-events-none z-1"
         style={{
           background:
-            "linear-gradient(90deg, #0e2354 0%, #0e2354 40%, #0e2354cc 60%, transparent 85%)",
+            "linear-gradient(90deg, #0e2354 0%, #0e2354 0%, #0e2354cc 60%, transparent 85%)",
         }}
         aria-hidden="true"
       />
@@ -51,11 +51,6 @@ export function HeroSection() {
       <div className="relative w-full max-w-295 mx-auto px-6 pt-16 pb-0 flex flex-col lg:flex-row items-end justify-between gap-8 min-h-[90vh]">
         {/* LEFT COLUMN */}
         <div className="w-full lg:w-[54%] xl:w-[52%] flex flex-col gap-6 relative z-30 pb-16 lg:pb-24 pt-8">
-          {/* Badge */}
-          <span className="self-start bg-brand-yellow text-brand-navy font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide uppercase shadow">
-            Lembaga Pelatihan Kerja Resmi
-          </span>
-
           {/* Main headline */}
           <h1
             className="m-0 text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.95] tracking-tight text-brand-yellow"
@@ -80,10 +75,16 @@ export function HeroSection() {
             {VENUE_CHIPS.map((chip) => (
               <span
                 key={chip.label}
-                className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold text-sm px-4 py-2 rounded-full"
+                className="flex flex-col items-center w-24 aspect-square gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold text-xs rounded-lg p-2"
               >
-                <span aria-hidden="true">{chip.emoji}</span>
                 {chip.label}
+                <Image
+                  src={chip.image}
+                  alt={chip.label}
+                  className="w-full h-full object-contain"
+                  width={100}
+                  height={100}
+                />
               </span>
             ))}
           </div>
