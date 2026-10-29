@@ -37,7 +37,9 @@ export function BiayaSection() {
           <p className="m-0 text-white/80 text-lg leading-relaxed">
             Raih karier internasional dengan investasi yang terjangkau. Program
             pelatihan komprehensif selama{" "}
-            <span className="text-white font-semibold">{FEES.trainingHours}</span>{" "}
+            <span className="text-white font-semibold">
+              {FEES.trainingHours}
+            </span>{" "}
             dengan fasilitas lengkap.
           </p>
           <p className="m-0 text-brand-yellow/90 text-sm font-semibold">
@@ -77,7 +79,7 @@ export function BiayaSection() {
           </div>
 
           {/* Duration */}
-          <div className="flex justify-between items-center gap-3 pb-4.5 border-b border-brand-border">
+          {/* <div className="flex justify-between items-center gap-3 pb-4.5 border-b border-brand-border">
             <span className="inline-flex items-center gap-2.5 text-[15px] font-semibold text-brand-muted">
               <ClockIcon className="w-5.5 h-5.5 text-brand-blue" />
               Lama Pelatihan
@@ -85,7 +87,7 @@ export function BiayaSection() {
             <span className="text-[26px] font-extrabold text-brand-navy">
               {FEES.trainingHours}
             </span>
-          </div>
+          </div> */}
 
           {/* Total */}
           <div className="bg-brand-yellow rounded-xl p-5 flex items-center justify-between gap-3 shadow-sm">
