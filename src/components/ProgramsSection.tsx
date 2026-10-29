@@ -7,6 +7,7 @@ import {
   RestaurantIcon,
   CoffeeIcon,
   ChatIcon,
+  ChefHatIcon,
 } from "@/components/icons";
 
 const ICON_MAP: Record<
@@ -15,6 +16,7 @@ const ICON_MAP: Record<
 > = {
   person: PersonIcon,
   housekeeping: HousekeepingIcon,
+  kitchen: ChefHatIcon,
   restaurant: RestaurantIcon,
   coffee: CoffeeIcon,
   chat: ChatIcon,
@@ -36,11 +38,11 @@ export function ProgramsSection() {
             id="programs-heading"
             className="m-0 text-3xl sm:text-4xl lg:text-[42px] leading-tight font-extrabold tracking-tight"
           >
-            Lima bidang pelatihan untuk dunia perhotelan
+            Enam bidang pelatihan untuk dunia perhotelan
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {PROGRAMS.map((program) => {
             const Icon = ICON_MAP[program.icon as ProgramIconKey];
             const isFeatured = program.variant === "featured";

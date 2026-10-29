@@ -15,7 +15,7 @@ export function SiteFooter() {
                 aria-hidden="true"
               >
                 <Image
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="LPK Logo"
                   width={100}
                   height={100}

@@ -71,10 +71,10 @@ export default function DaftarPage() {
             className="flex items-center gap-2 text-white font-extrabold text-lg no-underline hover:text-brand-yellow transition-colors"
           >
             <div
-              className="w-10 h-10 bg-brand-yellow aspect-square p-2 rounded-xl flex items-center justify-center"
+              className="w-10 h-10 bg-brand-yellow aspect-square p-2 rounded-lg flex items-center justify-center"
               aria-hidden="true"
             >
-              <Image src="/logo.png" alt="LPK Logo" width={100} height={100} />
+              <Image src="/logo.svg" alt="LPK Logo" width={100} height={100} />
             </div>
             <span className="hidden sm:inline">{SITE.fullName}</span>
             <span className="sm:hidden">{SITE.name}</span>
@@ -109,7 +109,7 @@ export default function DaftarPage() {
 
           {/* Success state */}
           {state.status === "success" ? (
-            <div className="bg-white rounded-[24px] p-10 flex flex-col items-center gap-5 text-center shadow-sm border border-brand-border">
+            <div className="bg-white rounded-3xl p-10 flex flex-col items-center gap-5 text-center shadow-sm border border-brand-border">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
                 <CheckmarkIcon
                   className="w-8 h-8 text-green-600"
@@ -144,7 +144,7 @@ export default function DaftarPage() {
           ) : (
             <form
               action={formAction}
-              className="bg-white rounded-[24px] p-8 sm:p-10 flex flex-col gap-6 shadow-sm border border-brand-border"
+              className="bg-white rounded-3xl p-8 sm:p-10 flex flex-col gap-6 shadow-sm border border-brand-border"
             >
               {/* Error banner */}
               {state.status === "error" && (
@@ -167,6 +167,20 @@ export default function DaftarPage() {
                     type="text"
                     name="nama"
                     placeholder="Sesuai KTP"
+                    required
+                    className={inputCls}
+                  />
+                </Field>
+
+                <Field label="NIK (Nomor Induk Kependudukan)" required>
+                  <input
+                    type="text"
+                    name="nik"
+                    placeholder="16 digit NIK sesuai KTP"
+                    pattern="[0-9]{16}"
+                    inputMode="numeric"
+                    maxLength={16}
+                    title="NIK harus berupa 16 digit angka"
                     required
                     className={inputCls}
                   />
@@ -212,6 +226,16 @@ export default function DaftarPage() {
                     />
                   </Field>
                 </div>
+
+                <Field label="Alamat Lengkap" required>
+                  <textarea
+                    name="alamat"
+                    rows={2}
+                    placeholder="Alamat domisili sesuai KTP / tempat tinggal saat ini"
+                    required
+                    className={inputCls}
+                  />
+                </Field>
 
                 <Field label="Kota / Kabupaten Asal" required>
                   <input

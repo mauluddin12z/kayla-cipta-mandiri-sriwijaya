@@ -51,7 +51,7 @@ function KegiatanDetailSkeleton() {
         <div className="bg-white rounded-[28px] p-6 sm:p-10 border border-brand-border flex flex-col gap-6">
           <div className="h-6 w-32 bg-brand-border/60 rounded-full" />
           <div className="h-10 w-3/4 bg-brand-border/60 rounded-lg" />
-          <div className="w-full aspect-[16/10] bg-brand-border/40 rounded-2xl" />
+          <div className="w-full aspect-16/10 bg-brand-border/40 rounded-2xl" />
           <div className="space-y-3 pt-4">
             <div className="h-4 w-full bg-brand-border/50 rounded" />
             <div className="h-4 w-5/6 bg-brand-border/50 rounded" />
@@ -66,7 +66,7 @@ function KegiatanDetailSkeleton() {
 // ---------------------------------------------------------------------------
 // Main page component - Renders the instant App Shell + Suspense boundary
 // ---------------------------------------------------------------------------
-export default function KegiatanDetailPage({ params }: PageProps) {
+export default function KegiatanDetailPage({ params }: Readonly<PageProps>) {
   return (
     <div className="w-full bg-white text-brand-navy min-h-screen flex flex-col">
       <SiteHeader />
@@ -81,7 +81,7 @@ export default function KegiatanDetailPage({ params }: PageProps) {
 // ---------------------------------------------------------------------------
 // Async content component - Reads params inside Suspense
 // ---------------------------------------------------------------------------
-async function KegiatanDetailContent({ params }: PageProps) {
+async function KegiatanDetailContent({ params }: Readonly<PageProps>) {
   const { slug } = await params;
   const activity = ACTIVITIES.find((item) => item.slug === slug);
 
@@ -114,7 +114,7 @@ async function KegiatanDetailContent({ params }: PageProps) {
             Kegiatan
           </Link>
           <span aria-hidden="true">/</span>
-          <span className="text-brand-blue truncate max-w-[200px] sm:max-w-none">
+          <span className="text-brand-blue truncate max-w-50 sm:max-w-none">
             {activity.category}
           </span>
         </nav>
@@ -128,10 +128,6 @@ async function KegiatanDetailContent({ params }: PageProps) {
             <div className="flex items-center gap-2 text-xs font-bold text-brand-blue">
               <CalendarIcon className="w-4 h-4" />
               <span>{activity.date}</span>
-              <span aria-hidden="true">•</span>
-              <span className="text-brand-muted">
-                {activity.readTime} baca
-              </span>
             </div>
           </div>
 
@@ -140,7 +136,7 @@ async function KegiatanDetailContent({ params }: PageProps) {
           </h1>
 
           {/* Featured Image */}
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-md bg-brand-subtle">
+          <div className="relative w-full aspect-16/10 sm:aspect-video rounded-2xl overflow-hidden shadow-md bg-brand-subtle">
             <Image
               src={activity.image}
               alt={activity.title}
@@ -216,7 +212,7 @@ async function KegiatanDetailContent({ params }: PageProps) {
               >
                 <Link
                   href={`/kegiatan/${item.slug}`}
-                  className="relative w-full aspect-[16/10] bg-brand-subtle overflow-hidden block"
+                  className="relative w-full aspect-16/10 bg-brand-subtle overflow-hidden block"
                 >
                   <Image
                     src={item.image}

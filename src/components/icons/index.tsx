@@ -190,3 +190,13 @@ export function CalendarIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function ChefHatIcon(props: IconProps) {
+  return (
+    <svg {...BASE_SVG_PROPS} {...props}>
+      <path d="M6 13.8a4 4 0 0 1-2-3.4 4 4 0 0 1 4-4 4 4 0 0 1 8 0 4 4 0 0 1 4 4 4 4 0 0 1-2 3.4" />
+      <path d="M6 14v4a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-4" />
+      <line x1="9" y1="17" x2="15" y2="17" />
+    </svg>
+  );
+}

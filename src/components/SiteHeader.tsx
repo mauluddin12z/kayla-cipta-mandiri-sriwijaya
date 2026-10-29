@@ -11,7 +11,7 @@ export function SiteHeader() {
             className="w-12 h-12 rounded-xl flex items-center justify-center"
             aria-hidden="true"
           >
-            <Image src="/logo.png" alt="LPK Logo" width={100} height={100} />
+            <Image src="/logo.svg" alt="LPK Logo" width={100} height={100} />
           </div>
           <div className="flex flex-col leading-tight">
             <span className="font-extrabold text-base text-brand-navy">

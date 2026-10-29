@@ -68,8 +68,6 @@ export function ActivitiesSection() {
                   <div className="flex items-center gap-2 text-xs font-bold text-brand-blue">
                     <CalendarIcon className="w-3.5 h-3.5" />
                     <span>{item.date}</span>
-                    <span aria-hidden="true">•</span>
-                    <span className="text-brand-muted">{item.readTime} baca</span>
                   </div>
 
                   {/* Title */}

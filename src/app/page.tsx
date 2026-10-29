@@ -1,6 +1,8 @@
 import {
   SiteHeader,
   HeroSection,
+  TentangKamiSection,
+  BiayaSection,
   AdvantagesSection,
   ProgramsSection,
   ActivitiesSection,
@@ -32,8 +34,10 @@ export default function HomePage() {
 
       <main>
         <HeroSection />
+        <TentangKamiSection />
         <AdvantagesSection />
         <ProgramsSection />
+        <BiayaSection />
         <ActivitiesSection />
         <RequirementsSection />
         <CtaSection />

@@ -43,16 +43,18 @@ function doPost(e) {
       sheet.appendRow([
         'Timestamp',
         'Nama Lengkap',
+        'NIK',
         'WhatsApp',
         'Email',
         'Jenis Kelamin',
         'Usia',
+        'Alamat Lengkap',
         'Kota/Kabupaten',
         'Pendidikan',
         'Pesan',
       ]);
       // Style header
-      const headerRange = sheet.getRange(1, 1, 1, 9);
+      const headerRange = sheet.getRange(1, 1, 1, 11);
       headerRange.setFontWeight('bold');
       headerRange.setBackground('#2b70e4');
       headerRange.setFontColor('#ffffff');
@@ -63,10 +65,12 @@ function doPost(e) {
     sheet.appendRow([
       data.timestamp,
       data.nama,
-      data.whatsapp,
+      data.nik ? "'" + data.nik : '',
+      data.whatsapp ? "'" + data.whatsapp : '',
       data.email,
       data.jenisKelamin,
       data.usia,
+      data.alamat,
       data.kota,
       data.pendidikan,
       data.pesan,

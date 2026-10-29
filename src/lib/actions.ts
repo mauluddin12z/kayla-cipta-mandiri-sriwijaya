@@ -35,10 +35,12 @@ export async function submitRegistration(
 
   const payload = {
     nama: (formData.get('nama') as string)?.trim(),
+    nik: (formData.get('nik') as string)?.trim(),
     whatsapp: (formData.get('whatsapp') as string)?.trim(),
     email: (formData.get('email') as string)?.trim() || '-',
     jenisKelamin: formData.get('jenisKelamin') as string,
     usia: (formData.get('usia') as string)?.trim(),
+    alamat: (formData.get('alamat') as string)?.trim(),
     kota: (formData.get('kota') as string)?.trim(),
     pendidikan: formData.get('pendidikan') as string,
     pesan: (formData.get('pesan') as string)?.trim() || '-',
@@ -48,7 +50,7 @@ export async function submitRegistration(
   }
 
   // Basic server-side validation
-  if (!payload.nama || !payload.whatsapp || !payload.usia || !payload.kota) {
+  if (!payload.nama || !payload.nik || !payload.whatsapp || !payload.usia || !payload.alamat || !payload.kota) {
     return { status: 'error', message: 'Mohon lengkapi semua kolom wajib.' }
   }
 

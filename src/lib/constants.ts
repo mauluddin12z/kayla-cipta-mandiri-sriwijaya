@@ -1,13 +1,13 @@
 /** Centralised site-wide constants for LPK Kayla Cipta Mandiri Sriwijaya */
 
 export const SITE = {
-  name: "Kayla Cipta Mandiri",
-  fullName: "LPK-LN Kayla Cipta Mandiri Sriwijaya",
-  tagline: "LPK-LN Sriwijaya · Palembang",
+  name: "KAYLA HOTEL ACADEMY",
+  fullName: "KAYLA HOTEL ACADEMY",
+  tagline: "Kuliah Singkat Kerja Mendunia",
   address:
     "Jalan Boulevard Raya Kav. 1, Perumahan Citraland, Kelurahan Keramasan, Kecamatan Kertapati, Kota Palembang, Provinsi Sumatera Selatan, Kode Pos 30259",
   phone: "085121289388",
-  phoneHref: "https://wa.me/6281367618764",
+  phoneHref: "https://wa.me/6285121289388",
   email: "kaylaciptamandiri@gmail.com",
   registrationPeriod: "November – Desember",
   copyrightYear: 2026,
@@ -15,7 +15,7 @@ export const SITE = {
 
 export const FEES = {
   total: "Rp15.000.000",
-  trainingHours: "960 Jam",
+  trainingHours: "",
   feeItems: [
     { label: "Sertifikasi", icon: "certificate" },
     { label: "Buku Diklat", icon: "book" },
@@ -39,7 +39,7 @@ export const ADVANTAGES = [
     icon: "building",
     title: "Fasilitas Standar Industri",
     description:
-      "Fasilitas lengkap dan berstandar dunia industri: Front Office, Housekeeping, Restaurant, dan Barista.",
+      "Fasilitas lengkap dan berstandar dunia industri: Front Office, Housekeeping, Kitchen, Restaurant, dan Barista.",
     variant: "default" as const,
   },
   {
@@ -63,6 +63,12 @@ export const PROGRAMS = [
     id: "housekeeping",
     icon: "housekeeping",
     title: "Housekeeping",
+    variant: "default" as const,
+  },
+  {
+    id: "kitchen",
+    icon: "kitchen",
+    title: "Kitchen",
     variant: "default" as const,
   },
   {
@@ -120,7 +126,6 @@ export const ACTIVITIES = [
     excerpt:
       "Workshop mengenai 'Pengembangan Model Pembelajaran Berstandar Dunia Industri' untuk para instruktur LPK dengan pembicara Dr. (Cand) Hadi Sutrisno, S.E., M.M., CHA.",
     date: "28 Oktober 2026",
-    readTime: "3 menit",
     image: "/activities/workshop.jpg",
     variant: "featured" as const,
 content: [ "LPK-LN Kayla Cipta Mandiri Sriwijaya menyelenggarakan workshop intensif bertajuk 'Pengembangan Model Pembelajaran Berstandar Dunia Industri' yang diikuti oleh seluruh jajaran instruktur dan pengajar lembaga. Kegiatan ini bertujuan untuk meningkatkan kualitas pembelajaran serta menyelaraskan pelaksanaan pelatihan dengan kebutuhan industri dan standar kompetensi internasional.", "Workshop ini menghadirkan Dr. (Cand) Hadi Sutrisno, S.E., M.M., CHA, seorang praktisi perhotelan dan pakar pengembangan sumber daya manusia, sebagai narasumber utama. Dalam pemaparannya, beliau menjelaskan materi dan kurikulum pelatihan berbasis standar ASEAN serta standar internasional yang relevan dengan kebutuhan industri, khususnya di bidang perhotelan dan hospitality. Pembahasan mencakup penyelarasan kompetensi, standar pelayanan, serta penerapan pembelajaran vokasi yang berorientasi pada kebutuhan dunia kerja global.", "Materi workshop juga menekankan pentingnya penguatan kompetensi praktis hospitality, penerapan standar kebersihan dan sanitasi, komunikasi lintas budaya, serta pembentukan etos kerja profesional. Para instruktur didorong untuk memahami dan mengimplementasikan standar kompetensi tersebut ke dalam proses pembelajaran agar peserta pelatihan memiliki keterampilan, sikap, dan profesionalisme yang sesuai dengan tuntutan industri.", "Selain penyampaian materi, kegiatan ini menjadi wadah diskusi internal bagi jajaran instruktur dan pengajar LPK-LN Kayla Cipta Mandiri Sriwijaya untuk mengevaluasi pelaksanaan pelatihan, membahas pengembangan kurikulum, serta mengidentifikasi kebutuhan dan tantangan lembaga dalam meningkatkan mutu pendidikan vokasi. Melalui diskusi ini, diharapkan tercipta kesamaan persepsi dan komitmen bersama dalam mengembangkan sistem pembelajaran yang lebih efektif, terarah, dan berstandar internasional.", "Melalui workshop ini, LPK-LN Kayla Cipta Mandiri Sriwijaya berkomitmen untuk terus meningkatkan kualitas instruktur, memperkuat penerapan kurikulum berstandar ASEAN dan internasional, serta mengembangkan program pelatihan yang sesuai dengan kebutuhan industri. Dengan demikian, lembaga diharapkan mampu mencetak calon tenaga kerja yang kompeten, disiplin, adaptif, dan siap bersaing di pasar kerja global." ]
@@ -133,7 +138,6 @@ content: [ "LPK-LN Kayla Cipta Mandiri Sriwijaya menyelenggarakan workshop inten
     excerpt:
       "Kepala Dinas Pendidikan Provinsi Sumatera Selatan Ibu Hj. Mondyaboni, S.E., S.Kom., M.Si., M.Pd mengunjungi LPK-LN Kayla Cipta Mandiri Sriwijaya untuk memberikan arahan kepada para instruktur LPK.",
     date: "28 Oktober 2026",
-    readTime: "4 menit",
     image: "/activities/kunjungan.jpeg",
     variant: "default" as const,
     content: [
@@ -151,7 +155,6 @@ content: [ "LPK-LN Kayla Cipta Mandiri Sriwijaya menyelenggarakan workshop inten
     excerpt:
       "Penandatanganan MoU antara LPK-LN Kayla Cipta Mandiri Sriwijaya dengan Hotel Batiqa untuk menjalin kerjasama dalam bidang pendidikan dan pelatihan perhotelan.",
     date: "28 Oktober 2026",
-    readTime: "5 menit",
     image: "/activities/mou.jpeg",
     variant: "default" as const,
     content: [
@@ -164,9 +167,9 @@ content: [ "LPK-LN Kayla Cipta Mandiri Sriwijaya menyelenggarakan workshop inten
 ] as const;
 
 export const NAV_LINKS = [
+  { href: "/#tentang-kami", label: "Tentang Kami" },
   { href: "/#program", label: "Bidang Kerja" },
   { href: "/#biaya", label: "Biaya" },
   { href: "/#kegiatan", label: "Kegiatan" },
   { href: "/#persyaratan", label: "Persyaratan" },
-  { href: "/#kontak", label: "Kontak" },
 ] as const;
